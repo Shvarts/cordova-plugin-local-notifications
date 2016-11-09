@@ -66,14 +66,14 @@
         <header-file src="src/ios/APPLocalNotification.h" />
         <source-file src="src/ios/APPLocalNotification.m" />
 
-        <header-file src="src/ios/APPLocalNotificationOptions.h" />
-        <source-file src="src/ios/APPLocalNotificationOptions.m" />
+        <header-file src="src/ios/APPLocalNotificationOptions.ios9.h" />
+        <source-file src="src/ios/APPLocalNotificationOptions.ios9.m" />
 
-        <header-file src="src/ios/UIApplication+APPLocalNotification.h" />
-        <source-file src="src/ios/UIApplication+APPLocalNotification.m" />
+        <header-file src="src/ios/UIApplication+APPLocalNotification.ios9.h" />
+        <source-file src="src/ios/UIApplication+APPLocalNotification.ios9.m" />
 
-        <header-file src="src/ios/UILocalNotification+APPLocalNotification.h" />
-        <source-file src="src/ios/UILocalNotification+APPLocalNotification.m" />
+        <header-file src="src/ios/UILocalNotification+APPLocalNotification.ios9.h" />
+        <source-file src="src/ios/UILocalNotification+APPLocalNotification.ios9.m" />
 
         <header-file src="src/ios/UNMutableNotificationContent+APPLocalNotification.h" />
         <source-file src="src/ios/UNMutableNotificationContent+APPLocalNotification.m" />

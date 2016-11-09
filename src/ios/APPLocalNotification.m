@@ -27,9 +27,9 @@
 #import "UNNotificationRequest+APPLocalNotification.h"
 #import "UNMutableNotificationContent+APPLocalNotification.h"
 
-#import "APPLocalNotificationOptions.h"
-#import "UIApplication+APPLocalNotification.h"
-#import "UILocalNotification+APPLocalNotification.h"
+#import "APPLocalNotificationOptions.ios9.h"
+#import "UIApplication+APPLocalNotification.ios9.h"
+#import "UILocalNotification+APPLocalNotification.ios9.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 

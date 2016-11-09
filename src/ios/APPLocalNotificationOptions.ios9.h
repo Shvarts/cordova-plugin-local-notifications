@@ -20,11 +20,11 @@
  *
  * @APPPLANT_LICENSE_HEADER_END@
  */
- 
+    
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface APPLocalNotificationOptions : NSObject
+@interface APPLocalNotificationOptions9 : NSObject
 
 - (id) initWithDict:(NSDictionary*)dict;
 

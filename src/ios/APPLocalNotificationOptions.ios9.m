@@ -21,19 +21,16 @@
  * @APPPLANT_LICENSE_HEADER_END@
  */
 
-#import "APPLocalNotificationOptions.h"
+#import "APPLocalNotificationOptions.ios9.h"
 
-// Default sound ressource path
-NSString* const DEFAULT_SOUND = @"res://platform_default";
-
-@interface APPLocalNotificationOptions ()
+@interface APPLocalNotificationOptions9 ()
 
 // The dictionary which contains all notification properties
 @property(nonatomic, retain) NSDictionary* dict;
 
 @end
 
-@implementation APPLocalNotificationOptions
+@implementation APPLocalNotificationOptions9
 
 @synthesize dict;
 
@@ -122,7 +119,7 @@ NSString* const DEFAULT_SOUND = @"res://platform_default";
     if ([self stringIsNullOrEmpty:path])
         return NULL;
 
-    if ([path isEqualToString:DEFAULT_SOUND])
+    if ([path isEqualToString:@"res://platform_default"])
         return UILocalNotificationDefaultSoundName;
 
     if ([path hasPrefix:@"file:/"])
