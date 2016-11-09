@@ -27,9 +27,9 @@
 #import "UNNotificationRequest+APPLocalNotification.h"
 #import "UNMutableNotificationContent+APPLocalNotification.h"
 
-#import "APPLocalNotificationOptions.ios9.h"
-#import "UIApplication+APPLocalNotification.ios9.h"
-#import "UILocalNotification+APPLocalNotification.ios9.h"
+#import "APPLocalNotificationOptions.h"
+#import "UIApplication+APPLocalNotification.h"
+#import "UILocalNotification+APPLocalNotification.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
@@ -80,12 +80,12 @@
 {
     NSArray* notifications = command.arguments;
   NSLog(@"%@", notifications[0]);
-  
+
 //  [center addNotificationRequest:request];
 //  content.title =
 //  content.body =
 //  content.sound = UNNotificationSound.default()
-  
+
 //  UILocalNotification* notification;
 //  //
 //  [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:7]];
@@ -96,21 +96,21 @@
 //  [notification setAlertAction:@"Hello Oleg"];
 //  [notification setHasAction:YES];
 //
-//  
-//  
+//
+//
 //  //[self scheduleLocalNotification:[notification copy]];
 //  //[self fireEvent:@"schedule" localnotification:notification];
-//  
+//
 //  //[self.app scheduleLocalNotification:notification];
 ////  if (notifications.count > 1) {
 ////    [NSThread sleepForTimeInterval:0.01];
 ////  }
 //  [self scheduleLocalNotification:notification];
 //  [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-  
+
     [self.commandDelegate runInBackground:^{
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-          
+
           for (NSDictionary* options in notifications) {
             NSTimeInterval timeInSeconds = [[NSDate date] timeIntervalSince1970];
             int fireTime = timeInSeconds - [options[@"at"] intValue];
@@ -118,23 +118,23 @@
             UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
             UNNotificationSound* sound = [UNNotificationSound soundNamed:options[@"sound"]];
             UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-            
+
             content.title = [NSString localizedUserNotificationStringForKey:options[@"title"] arguments:nil];
             content.body = [NSString localizedUserNotificationStringForKey:options[@"text"] arguments:nil];
             [content setSound:sound];
-            
-            
+
+
             UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:fireTime + 1 repeats:NO];
             UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"schedule" content:content trigger:trigger];
-            
+
             [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-            
+
             }];
           }
-          
+
 //          [self.app scheduledLocalNotifications];
 //          UILocalNotification* notification;
-//          
+//
 //          [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:7]];
 //          [notification setHasAction:YES];
 //          [notification setSoundName:@"alarm.caf"];
@@ -143,11 +143,11 @@
 //          [notification setAlertAction:@"Hello Oleg"];
 //           [notification setHasAction:YES];
 //          notification = [[UILocalNotification alloc] initWithOptions:notifications[0]];
-          
-         
+
+
 //          [self scheduleLocalNotification:[notification copy]];
 //          [self fireEvent:@"schedule" localnotification:notification];
-          
+
 //          [self.app scheduleLocalNotification:notification];
 //          if (notifications.count > 1) {
 //            [NSThread sleepForTimeInterval:0.01];
@@ -155,9 +155,9 @@
 //          [self scheduleLocalNotification:notification];
 //          [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 //          NSLog(@"%@", [[self app] scheduledLocalNotifications]);
-          
+
 //            for (NSDictionary* options in notifications) {
-//          
+//
 //                UNMutableNotificationContent* notification;
 //
 //                notification = [[UNMutableNotificationContent alloc]
@@ -184,9 +184,9 @@
             }
         }
 //
-//      
+//
      }];
-  
+
   [self execCallback:command];
 }
 
@@ -864,8 +864,8 @@
           @"cordova.plugins.notification.local.core.fireEvent('%@', %@)",
           event, params];
 
-  
-  
+
+
 //  [notification setSound: [UNNotificationSound soundNamed:@"file://alarm.caf"]];
     if (deviceready) {
         [self.commandDelegate evalJs:js];
