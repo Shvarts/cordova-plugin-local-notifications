@@ -81,6 +81,8 @@
         <header-file src="src/ios/UNUserNotificationCenter+APPLocalNotification.h" />
         <source-file src="src/ios/UNUserNotificationCenter+APPLocalNotification.m" />
 
+        <header-file src="src/ios/UNNotificationRequest+APPLocalNotification.h" />
+        <source-file src="src/ios/UNNotificationRequest+APPLocalNotification.m" />
     </platform>
 
     <!-- android -->
