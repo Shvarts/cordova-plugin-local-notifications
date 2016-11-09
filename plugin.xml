@@ -69,6 +69,9 @@
         <header-file src="src/ios/APPLocalNotificationOptions.ios9.h" />
         <source-file src="src/ios/APPLocalNotificationOptions.ios9.m" />
 
+        <header-file src="src/ios/APPLocalNotificationOptions.h" />
+        <source-file src="src/ios/APPLocalNotificationOptions.m" />
+
         <header-file src="src/ios/UIApplication+APPLocalNotification.ios9.h" />
         <source-file src="src/ios/UIApplication+APPLocalNotification.ios9.m" />
 

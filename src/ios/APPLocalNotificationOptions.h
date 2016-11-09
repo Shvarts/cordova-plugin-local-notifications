@@ -21,24 +21,27 @@
  * @APPPLANT_LICENSE_HEADER_END@
  */
 
-package de.appplant.cordova.plugin.notification;
+#import <UserNotifications/UNNotificationSound.h>
+#import <UserNotifications/UNNotificationRequest.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-/**
- * The clear intent receiver is triggered when the user clears a
- * notification manually. It un-persists the cleared notification from the
- * shared preferences.
- */
-public class ClearReceiver extends AbstractClearReceiver {
+@interface APPLocalNotificationOptions : NSObject
 
-    /**
-     * Called when a local notification was cleared from outside of the app.
-     *
-     * @param notification
-     *      Wrapper around the local notification
-     */
-    @Override
-    public void onClear (Notification notification) {
-        notification.clear();
-    }
+- (id) initWithDict:(NSDictionary*)dict;
 
-}
+@property (readonly, getter=id) NSNumber* id;
+@property (readonly, getter=identifier) NSString* identifier;
+@property (readonly, getter=title) NSString* title;
+@property (readonly, getter=subtitle) NSString* subtitle;
+@property (readonly, getter=badge) NSNumber* badge;
+@property (readonly, getter=text) NSString* text;
+@property (readonly, getter=sound) UNNotificationSound* sound;
+@property (readonly, getter=userInfo) NSDictionary* userInfo;
+
+// If it's a repeating notification
+- (BOOL) isRepeating;
+// how and when to trigger the notification
+- (UNNotificationTrigger*) trigger;
+
+@end
